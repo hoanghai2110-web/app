@@ -1,0 +1,39 @@
+> Task :app:kaptGenerateStubsDebugKotlin
+w: Support for language version 2.0+ in kapt is in Alpha and must be enabled explicitly. Falling back to 1.9.
+Finished executing kotlin compiler using DAEMON strategy
+AAPT2 aapt2-8.7.3-12006047-linux Daemon #0: shutdown
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:buildCMakeDebug[arm64-v8a]'.
+> com.android.ide.common.process.ProcessException: ninja: Entering directory `/content/app/Android/src/app/.cxx/Debug/2a4j5210/arm64-v8a'
+  [1/2] Building CXX object CMakeFiles/llama-android.dir/llama_wrapper.cpp.o
+  FAILED: CMakeFiles/llama-android.dir/llama_wrapper.cpp.o 
+  /content/android-sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android26 --sysroot=/content/android-sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DGGML_BUILD=1 -DGGML_USE_CPU=1 -D_GNU_SOURCE -Dllama_android_EXPORTS -I/content/app/Android/src/app/src/main/cpp/../../../../../llama.cpp/include -I/content/app/Android/src/app/src/main/cpp/../../../../../llama.cpp/ggml/include -I/content/app/Android/src/app/src/main/cpp/../../../../../llama.cpp/src -I/content/app/Android/src/app/src/main/cpp/../../../../../llama.cpp/common -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -O3 -DNDEBUG -O3 -DNDEBUG -ffast-math -fno-limit-debug-info  -fPIC -std=gnu++17 -MD -MT CMakeFiles/llama-android.dir/llama_wrapper.cpp.o -MF CMakeFiles/llama-android.dir/llama_wrapper.cpp.o.d -o CMakeFiles/llama-android.dir/llama_wrapper.cpp.o -c /content/app/Android/src/app/src/main/cpp/llama_wrapper.cpp
+  /content/app/Android/src/app/src/main/cpp/llama_wrapper.cpp:5:10: fatal error: 'llama.h' file not found
+      5 | #include "llama.h"
+        |          ^~~~~~~~~
+  1 error generated.
+  ninja: build stopped: subcommand failed.
+  
+  C++ build system [build] failed while executing:
+      /content/android-sdk/cmake/3.22.1/bin/ninja \
+        -C \
+        /content/app/Android/src/app/.cxx/Debug/2a4j5210/arm64-v8a \
+        llama-android
+    from /content/app/Android/src/app
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 35s
+25 actionable tasks: 25 executed
+Some of the file system contents retained in the virtual file system are on file systems that Gradle doesn't support watching. The relevant state was discarded to ensure changes to these locations are properly detected. You can override this by explicitly enabling file system watching.
+
+
+
+<-------------> 0% WAITING> IDLE> IDLE

@@ -1,0 +1,60 @@
+modules = ["cpp-clang14", "c-clang14", "python-3.12"]
+[nix]
+channel = "stable-24_05"
+
+[workflows]
+runButton = "Build APK with Llama.cpp (Complete)"
+
+[[workflows.workflow]]
+name = "Build APK"
+author = 44710398
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd Android/src && ./gradlew assembleDebug"
+
+[[workflows.workflow]]
+name = "Build APK with llama.cpp"
+author = 44710398
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd Android/src && ./gradlew assembleDebug"
+
+[[workflows.workflow]]
+name = "Build APK Clean"
+author = 44710398
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd Android/src && ./gradlew clean && ./gradlew assembleDebug"
+
+[[workflows.workflow]]
+name = "Build APK with Llama.cpp (Complete)"
+author = 44710398
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd Android/src && chmod +x gradlew && ./gradlew clean && ./gradlew assembleDebug --info"
+
+[[workflows.workflow]]
+name = "Build APK Lite (Colab Ready)"
+author = 44744782
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd Android/src && echo \"org.gradle.jvmargs=-Xmx1g\" >> gradle.properties && echo \"org.gradle.parallel=false\" >> gradle.properties && ./gradlew assembleDebug --no-daemon --max-workers=1"
+
+[[workflows.workflow]]
+name = "Build APK Lite (Colab Ready)"
+author = 44744782
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd Android/src && echo \"org.gradle.jvmargs=-Xmx1g\" >> gradle.properties && echo \"org.gradle.parallel=false\" >> gradle.properties && ./gradlew assembleDebug --no-daemon --max-workers=1"
